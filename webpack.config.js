@@ -58,16 +58,14 @@ module.exports = {
                 //加载的loader,上面匹配到的文件都通过下面的loader来处理编译,这里是babel-es6+react
                 loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'
             },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/,
-            //     loader: 'eslint-loader'
-            // },
-
+            {
+                test: /\.sass/,
+                loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
+            },
             //.css 文件使用 style-loader 和 css-loader 来处理
             {
                 test: /\.scss/,
-                loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 versions'
+                loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 versions!sass-loader?outputStyle=expanded'
             },
             {
                 test: /\.css$/,
@@ -75,15 +73,19 @@ module.exports = {
             },
             //图片文件使用url-loader 处理 '?limit=8192'表示将所有小于8kb的图片都转为base64形式
             {
-                test: /.(png|jpg)$/,
+                test: /.png$/,
                 loader: 'url-loader?limit=8192'
-            }, {
+            },
+            {
+                test: /\.jpg$/, loader: "file-loader"
+            },
+            {
                 test: /\.json$/,
                 loader: 'json-loader'},
         ],
     },
     resolve: {
-        extensions: [' ','.js','.jsx']
+        extensions: [' ','.js','.jsx','.json']
     },
     //插件
     plugins: [
