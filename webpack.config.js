@@ -73,12 +73,13 @@ module.exports = {
             },
             //图片文件使用url-loader 处理 '?limit=8192'表示将所有小于8kb的图片都转为base64形式
             {
-                test: /\.(png|gif|woff|woff2|eot|ttf)$/,
-                loader: 'url-loader?limit=8192'
+                test: /\.(png|jpg|gif|woff|woff2|eot|ttf)$/,
+                loader: 'url-loader?limit=100000&name=images/[hash:8].[name].[ext]'
             },
+            // {
+            //     test: /\.jpg$/, loader: "file-loader?name=img/[hash:8].[name].[ext]"
+            // },
             {
-                test: /\.jpg$/, loader: "file-loader"
-            }, {
                 test: /\.svg$/, loader: 'svg-url-loader'
             }, {
                 test: /\.json$/,
