@@ -1,9 +1,3 @@
-// import Hello from '../Hello/index.jsx';
-// import World from './World/index.jsx';
-//
-// import './Hello/index.less';
-// import './World/index.less';
-
 import React from 'react';
 import ReactDOM from 'react-dom'
 import '../styles/main.scss'
@@ -288,7 +282,6 @@ class GalleryByReactApp extends React.Component{
 
 
         return (
-            // <div>hello</div>
             <section className="stage" ref="stage">
                 <section className="img-sec">
                     {imageFigures}
@@ -299,7 +292,6 @@ class GalleryByReactApp extends React.Component{
             </section>
         );
     }
-
 }
 
 export default GalleryByReactApp;
